@@ -15,13 +15,14 @@ We will reverse the linked list by the following method:
 1. q is node before beg q->link points to beg.
 2. head is always pointing to the beginning node(as you will see further in explanation).
 3. We push the entire node next to head at the at the beginning as we traverse from beg to end nodes.
-   Explanation:
+
+Explanation:
 ```
                q   head
           1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
                    beg            end
 ```
-According to point 1 head always points to the beginning node & we change the value of beg node every time as we push a new node at the beginning.
+According to point 1 head always points to the beginning node & we change the value of beg node every time as we push a new node at the beginning.\
 Suppose we push 4 at the beginnig:
 	 
 ```
