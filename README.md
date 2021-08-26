@@ -1,4 +1,3 @@
-Code by: 狐 
 ## EXPLANATION:
 The method to reverse the given linked list from one point to another:\
 Suppose our linked list is as follows: \
@@ -374,3 +373,4 @@ We print only upto the last node (as inputted) not the one we added.
 
 Thank You!! If you have read the explanation till the very end. I'm very grateful to you.
 
+Code by: 狐 Aman 🦊
