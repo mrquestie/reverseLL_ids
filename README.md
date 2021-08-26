@@ -371,4 +371,5 @@ void display(int nodes)
 ```
 We print only upto the last node (as inputted) not the one we added.
 
-Thank You!! If you have read the explanation till this point. I'm very grateful to you.
+Thank You!! If you have read the explanation till the very end. I'm very grateful to you.
+
