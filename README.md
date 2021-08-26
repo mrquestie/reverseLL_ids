@@ -21,12 +21,8 @@ We will reverse the linked list by the following method:
           1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
                    beg            end
 ```
-
-
-
-
-         According to point 1 head always points to the beginning node & we change the value of beg node every time as we push a new node at the beginning.
-         Suppose we push 4 at the beginnig:
+According to point 1 head always points to the beginning node & we change the value of beg node every time as we push a new node at the beginning.
+Suppose we push 4 at the beginnig:
 	 
 ```
                q        head
@@ -113,14 +109,14 @@ Code:
 		}
 ```
 
-Explanation:\
+Explanation:
 1. The if() statement is for increasing sequence as we can see.
     Example(1):
 ```
           q                ~--> increasing sequence breaks at this point
           1 -> 2 -> 3 -> 7 -> 4 -> and so on.
 ```
-
+------->
        - The while loop executes until it reaches the point at which the node after which the sequence breaks.
        - i.e., in the example we can see that the while loop executes till 7 thus performing q = q->link.
        - Finally when q->info > q->link->info (i.e., the value after is less) the loop condition becomes false thus ending execution of while loop.
@@ -146,7 +142,7 @@ Case 1:
       1 -> 2 -> 3 -> 7 -> 4 -> 2 -> 9 -> 7 -> 8
       <------inc----->   <-dec->   <-dec->
 ```
-
+----->
       do-while loop is executed:\
       4 times.\
       first for 1 -> 2 -> 3 -> 7\
@@ -212,7 +208,7 @@ I was able to execute the base case until I came accross this example which brok
 ```
       1 -> 2 -> 3 -> 4 -> 5 -> 4 -> 3 -> 2 -> 1
 ```
-
+----->
      What can we see here:\
      - 2 sequences 1st one increasing from 1 -> 2 -> 3 -> 4 -> 5 2nd one 4 -> 3 -> 2 -> 1
      - The second sequence is the one which broke the code.
@@ -232,22 +228,22 @@ I was able to execute the base case until I came accross this example which brok
        beg            end
 ```
 
- This is the stage where code breaks because:\
- we have seen that in both if & else statement of the reverse() function we assign:
- ```
- struct node *index = head->link->link;
- ```
+This is the stage where code breaks because:\
+we have seen that in both if & else statement of the reverse() function we assign:
+```
+struct node *index = head->link->link;
+```
  
 But as we reach stage/point 3 the link of node (info = 1) points NULL. Thus we have to do something for it.\
 Basically where the code breaks is not inside reverse() function but rather the while loop inside do-while loop of int main().
 
 What happens:
 ```
-      beg = q;
-      while (q->info > q->link->info)
-			{
-				q = q->link;
-			}
+      	beg = q;
+      	while (q->info > q->link->info)
+	{
+		q = q->link;
+	}
       end = q;
 ```
 
@@ -256,7 +252,7 @@ What happens:
       -> 4 -> 3 -> 2 -> 1
 ```
 
-    we set, beg = q\
+we set, beg = q\
 **while loop begins...**
 ```
 1.
@@ -290,14 +286,14 @@ We add, after
 q = q->link;
 ```
 ```
-        			if (q->link == NULL)
-				{
-					struct node* tmp = (struct node*)malloc(sizeof(struct node));
-					tmp->info = q->info - 1;
-					tmp->link = NULL;
-					q->link = tmp;
-					index++;
-				}
+        if (q->link == NULL)
+	{
+		struct node* tmp = (struct node*)malloc(sizeof(struct node));
+		tmp->info = q->info - 1;
+		tmp->link = NULL;
+		q->link = tmp;
+		index++;
+	}
 ```
 
 Explanation:\
@@ -321,7 +317,7 @@ But how does it break the sequence?\
                          q
   -> 5 -> 6 -> 7 -> 8 -> 9
 ```
-
+----->
     We do the following:\
     -> make a new node tmp.\
     -> tmp->info = q->info - 1 (as the sequence is increasing.)\
@@ -374,6 +370,6 @@ void display(int nodes)
 	}
 }
 ```
-Check line 290 we print only upto the last node (as inputted) not the one we added.
+We print only upto the last node (as inputted) not the one we added.
 
 Thank You!! If you have read the explanation till this point. I'm very grateful to you.
