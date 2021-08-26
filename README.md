@@ -18,17 +18,17 @@ We will reverse the linked list by the following method:
 
 Explanation:
 ```
-               q   head
-          1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
-                   beg            end
+       q   head
+  1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+	   beg            end
 ```
 According to point 1 head always points to the beginning node & we change the value of beg node every time as we push a new node at the beginning.\
 Suppose we push 4 at the beginnig:
 	 
 ```
-               q        head
-          1 -> 2 -> 4 -> 3 -> 5 -> 6 -> 7
-                   beg            end
+       q        head
+  1 -> 2 -> 4 -> 3 -> 5 -> 6 -> 7
+	   beg            end
 ```
 Code:
 ```
@@ -50,29 +50,29 @@ Explanation:\
 Inside while loop:
 ```
 1.
-             q   head           
-        1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
-                 beg            end
+     q   head           
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+	 beg            end
 2.
-             q        head
-        1 -> 2 -> 4 -> 3 -> 5 -> 6 -> 7
-                 beg            end
+     q        head
+1 -> 2 -> 4 -> 3 -> 5 -> 6 -> 7
+	 beg            end
 3.
-             q             head
-        1 -> 2 -> 5 -> 4 -> 3 -> 6 -> 7
-                 beg            end
+     q             head
+1 -> 2 -> 5 -> 4 -> 3 -> 6 -> 7
+	 beg            end
 4.
-             q                  head
-        1 -> 2 -> 6 -> 5 -> 4 -> 3 -> 7
-                 beg
+     q                  head
+1 -> 2 -> 6 -> 5 -> 4 -> 3 -> 7
+	 beg
                  end
 ```
 
 After while loop ends
 ```
-             q                  head
-        1 -> 2 -> 6 -> 5 -> 4 -> 3 -> 7
-                 beg            end
+     q                  head
+1 -> 2 -> 6 -> 5 -> 4 -> 3 -> 7
+	 beg            end
 ```                 
 
 Now we will look at the do-while loop inside int main():\
@@ -80,10 +80,10 @@ w.k.t., we have to reverse the increasing and decreasing sequence of components.
 For example:
 
 ```
-           <------inc----->   <-dec->    <---dec--->
-           1 -> 2 -> 3 -> 7 -> 4 -> 2 -> 9 -> 8 -> 7 
-           
-=>         7 -> 3 -> 2 -> 1 -> 2 -> 4 -> 7 -> 8 -> 9
+   <------inc----->   <-dec->    <---dec--->
+   1 -> 2 -> 3 -> 7 -> 4 -> 2 -> 9 -> 8 -> 7 
+
+   7 -> 3 -> 2 -> 1 -> 2 -> 4 -> 7 -> 8 -> 9
 ```
 
 We will only look at the if() part:\
@@ -114,8 +114,8 @@ Explanation:
 1. The if() statement is for increasing sequence as we can see.
     Example(1):
 ```
-          q                ~--> increasing sequence breaks at this point
-          1 -> 2 -> 3 -> 7 -> 4 -> and so on.
+  q                ~--> increasing sequence breaks at this point
+  1 -> 2 -> 3 -> 7 -> 4 -> and so on.
 ```
 - The while loop executes until it reaches the point at which the node after which the sequence breaks.
 - i.e., in the example we can see that the while loop executes till 7 thus performing q = q->link.
@@ -130,8 +130,8 @@ Explanation:
 Example(1 cont.):\
 After assigning the value of LL as q = q->link. As previously it was pointing at the end node.
 ```
-                              q
-          7 -> 3 -> 2 -> 1 -> 4 -> and so on.
+		      q
+  7 -> 3 -> 2 -> 1 -> 4 -> and so on.
 ```
 
 6. Thus, the do while loop executes until it reaches its end condition and this is where things get tricky.
@@ -140,8 +140,8 @@ Examples important:\
 Now we look at 2 cases to undestand the code better:\
 Case 1:
 ```
-      1 -> 2 -> 3 -> 7 -> 4 -> 2 -> 9 -> 7 -> 8
-      <------inc----->   <-dec->   <-dec->
+1 -> 2 -> 3 -> 7 -> 4 -> 2 -> 9 -> 7 -> 8
+<------inc----->   <-dec->   <-dec->
 ```
 do-while loop is executed:\
 4 times.\
@@ -152,8 +152,8 @@ first for 1 -> 2 -> 3 -> 7
 in reverse() we have the if-else condition as follows performing reverse according to the requirement as follows:
       
 ```
-      if (start == beg){....}
-      else{....}
+if (start == beg){....}
+else{....}
 ```
 
      - Here we have to change the value of start simultaneously.
@@ -206,7 +206,7 @@ Finally we print all the values.
 Case 2:\
 I was able to execute the base case until I came accross this example which broke the code ☹️.
 ```
-      1 -> 2 -> 3 -> 4 -> 5 -> 4 -> 3 -> 2 -> 1
+1 -> 2 -> 3 -> 4 -> 5 -> 4 -> 3 -> 2 -> 1
 ```
 What can we see here:
 - 2 sequences 1st one increasing from 1 -> 2 -> 3 -> 4 -> 5 2nd one 4 -> 3 -> 2 -> 1
@@ -247,8 +247,8 @@ end = q;
 ```
 
 ```
-         q
-      -> 4 -> 3 -> 2 -> 1
+   q
+-> 4 -> 3 -> 2 -> 1
 ```
 
 we set, beg = q\
@@ -306,8 +306,8 @@ Thus,
 q = q->link;
 ```
 ```
-                          q
-        -> 4 -> 3 -> 2 -> 1
+		  q
+-> 4 -> 3 -> 2 -> 1
 ```
 After this if statement checks whether q->link == NULL which is true.\
 Thus if() executes and a node after 1 is added keeping in maind whether the sequence is increasing or decreasing breaking the sequence such that it cannot execute further.\
