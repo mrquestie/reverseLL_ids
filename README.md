@@ -312,7 +312,7 @@ q = q->link;
 
 after this if statement checks whether q->link == NULL which is true.\
 Thus if executes and a node after after 1 breaking the sequence such that it cannot execute further.\
--> if the sequence is increasing \
+Case 1: If the sequence is **increasing** \
 Example:
 ```
                          q
@@ -330,7 +330,7 @@ Result:
                          q ------ sequence breaks at this node
   -> 5 -> 6 -> 7 -> 8 -> 9 -> 8
 ```
-if the sequence is decreasing\
+Case 2: If the sequence is **decreasing**\
 Example:
 ```                    q
      -> 9 -> 8 -> 7 -> 6
