@@ -287,6 +287,7 @@ We add, after
 ```
 q = q->link;
 ```
+The following: 
 ```
 if (q->link == NULL)
 {
@@ -297,7 +298,6 @@ if (q->link == NULL)
 	index++;
 }
 ```
-
 Explanation:\
 after 2.\
 while loop executes 2 > 1 true ✔️\
@@ -309,9 +309,9 @@ q = q->link;
                           q
         -> 4 -> 3 -> 2 -> 1
 ```
-
-after this if statement checks whether q->link == NULL which is true.\
-Thus if executes and a node after after 1 breaking the sequence such that it cannot execute further.\
+After this if statement checks whether q->link == NULL which is true.\
+Thus if() executes and a node after 1 is added keeping in maind whether the sequence is increasing or decreasing breaking the sequence such that it cannot execute further.\
+How it is done:\
 Case 1: If the sequence is **increasing** \
 Example:
 ```
