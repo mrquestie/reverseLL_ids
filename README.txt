@@ -1,7 +1,7 @@
-The method to reverse the given linked list from one point to another:\
-Suppose our linked list is as follows: \
-1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 \
-We wish to reverse the linked list from node 2 (beg) to node 5 (end)\
+The method to reverse the given linked list from one point to another:
+Suppose our linked list is as follows: 
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 
+We wish to reverse the linked list from node 2 (beg) to node 5 (end)
 
 First we need the node before the beg node to do that:
 that is,
@@ -41,25 +41,25 @@ Code:
 		end = head;
 ```
 Explanation:
-**Inside while loop:**
-**1.**
+Inside while loop:
+1.
              q   head           
         1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
                  beg            end
-**2.**
+2.
              q        head
         1 -> 2 -> 4 -> 3 -> 5 -> 6 -> 7
                  beg            end
-**3.**
+3.
              q             head
         1 -> 2 -> 5 -> 4 -> 3 -> 6 -> 7
                  beg            end
-**4.**
+4.
              q                  head
         1 -> 2 -> 6 -> 5 -> 4 -> 3 -> 7
                  beg
                  end
-**After while loop ends**
+After while loop ends
              q                  head
         1 -> 2 -> 6 -> 5 -> 4 -> 3 -> 7
                  beg            end
@@ -115,7 +115,7 @@ Explanation:
           7 -> 3 -> 2 -> 1 -> 4 -> and so on.
 6. Thus, the do while loop executes until it reaches its end condition and this is where things get tricky.
 
-**Examples important:**
+Examples important:
 Now we look at 2 cases to undestand the code better:
 Case 1:
       1 -> 2 -> 3 -> 7 -> 4 -> 2 -> 9 -> 7 -> 8
@@ -130,26 +130,26 @@ Case 1:
       if (start == beg){....}
       else{....}
      - Here we have to change the value of start simultaneously.
-**1.**
+1.
     start&
      head
       1 -> 2 -> 3 -> 7 -> ......
      beg            end
-**While loop begins...**
-**2.**
+While loop begins...
+2.
     start head
       2 -> 1 -> 3 -> 7 -> .....
      beg            end
-**3.**
+3.
     start      head
       3 -> 2 -> 1 -> 7 -> .....
      beg            end
-**4.**
+4.
     start           head
       7 -> 3 -> 2 -> 1 -> .....
      beg&
      end
-**While loop ends.**
+While loop ends.
 assigning
 ```
 end = head;
@@ -175,15 +175,15 @@ I was able to execute the base case until I came accross this example which brok
      - 2 sequences 1st one increasing from 1 -> 2 -> 3 -> 4 -> 5 2nd one 4 -> 3 -> 2 -> 1
      - The second sequence is the one which broke the code.
      - What happens here:
-**1.**
+1.
    q   head
      -> 4 -> 3 -> 2 -> 1
        beg            end
-**2.**
+2.
    q        head
      -> 3 -> 4 -> 2 -> 1
        beg            end
-**3.**
+3.
    q             head
      -> 2 -> 3 -> 4 -> 1
        beg            end
@@ -207,13 +207,13 @@ What happens:
          q
       -> 4 -> 3 -> 2 -> 1
     we set, beg = q
-**while loop begins...**
-**1.**
+while loop begins...
+1.
 while loop condition true as 4 > 3.
 Thus,``` q = q->link; ```
               q
       -> 4 -> 3 -> 2 -> 1
-**2.**
+2.
 while loop condition true as 3 > 2.
 Thus,```q = q->link;```
                     q
@@ -223,12 +223,12 @@ while loop condition true as 2 > 1.
 Thus,```q = q->link;```
                         q
       -> 4 -> 3 -> 2 -> 1
-**4.**
+4.
 while loop executes once again but since now q->link == NULL & since there is no value after 1 to compare to the code breaks.
 The problem cannot solved by adding q->link!=NULL 
-while(q->info > q->link->info && **q->link!=NULL**){...}
+while(q->info > q->link->info && q->link!=NULL){...}
 
-So we apply a **BIG BRAIN MOVE**
+So we apply a BIG BRAIN MOVE
 inside the while loop inside conditional statements (if & else if) inside do-while loop inside int main()
 We add, after ```q = q->link;```
 ```
@@ -242,7 +242,7 @@ We add, after ```q = q->link;```
 				}
 ```
 Explanation:
-after **2.** (at line 216)
+after 2. (at line 216)
 while loop executes 2 > 1 true ✔️
 Thus,```q = q->link;```
                           q
@@ -256,7 +256,7 @@ But how does it break the sequence?
   -> 5 -> 6 -> 7 -> 8 -> 9
     We do the following:
     -> make a new node tmp.
-    -> **tmp->info = q->info - 1** (as the sequence is increasing.)
+    -> tmp->info = q->info - 1 (as the sequence is increasing.)
     -> tmp->link = NULL;
     -> q->link = tmp;
     Result:
@@ -267,13 +267,13 @@ But how does it break the sequence?
                     q
   -> 9 -> 8 -> 7 -> 6
     -> ```struct node *tmp = ....malloc(..);```
-    -> **tmp->info = q->info + 1** (as the sequence is decreasing)
+    -> tmp->info = q->info + 1 (as the sequence is decreasing)
     ....260-261
     Result:
                     q ------ sequence breaks
   -> 9 -> 8 -> 7 -> 6 -> 7
 
-**Refer to line 120 to see execution...**
+Refer to line 120 to see execution...
 
 Now you would be thinking the output would include the added node at the end of the linked list we have input.
 You are wrong! 😃 As it is in our hand as to what we can print!!!
