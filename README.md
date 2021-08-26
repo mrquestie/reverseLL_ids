@@ -20,7 +20,10 @@ We will reverse the linked list by the following method:
                q   head
           1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
                    beg            end
-```\
+```
+
+
+
 
          According to point 1 head always points to the beginning node & we change the value of beg node every time as we push a new node at the beginning.
          Suppose we push 4 at the beginnig:
