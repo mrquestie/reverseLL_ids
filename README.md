@@ -208,10 +208,10 @@ I was able to execute the base case until I came accross this example which brok
 ```
       1 -> 2 -> 3 -> 4 -> 5 -> 4 -> 3 -> 2 -> 1
 ```
-What can we see here:\
-     - 2 sequences 1st one increasing from 1 -> 2 -> 3 -> 4 -> 5 2nd one 4 -> 3 -> 2 -> 1
-     - The second sequence is the one which broke the code.
-     - What happens here:
+What can we see here:
+- 2 sequences 1st one increasing from 1 -> 2 -> 3 -> 4 -> 5 2nd one 4 -> 3 -> 2 -> 1
+- The second sequence is the one which broke the code.
+- What happens here:
 ```
 1.
    q   head
@@ -316,20 +316,18 @@ But how does it break the sequence?\
                          q
   -> 5 -> 6 -> 7 -> 8 -> 9
 ```
------>
-    We do the following:\
-    -> make a new node tmp.\
-    -> tmp->info = q->info - 1 (as the sequence is increasing.)\
-    -> tmp->link = NULL;\
-    -> q->link = tmp;\
-    Result:
+We do the following:
+- make a new node tmp.
+- tmp->info = q->info - 1 (as the sequence is increasing.)
+- tmp->link = NULL;
+- q->link = tmp;
+Result:
 ```
                          q ------ sequence breaks at this node
   -> 5 -> 6 -> 7 -> 8 -> 9 -> 8
 ```
-
--> if the sequence is decreasing\
-  Example:
+if the sequence is decreasing\
+Example:
 ```                    q
      -> 9 -> 8 -> 7 -> 6
 ```
