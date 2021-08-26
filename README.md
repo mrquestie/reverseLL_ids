@@ -116,12 +116,11 @@ Explanation:
           q                ~--> increasing sequence breaks at this point
           1 -> 2 -> 3 -> 7 -> 4 -> and so on.
 ```
-------->
-       - The while loop executes until it reaches the point at which the node after which the sequence breaks.
-       - i.e., in the example we can see that the while loop executes till 7 thus performing q = q->link.
-       - Finally when q->info > q->link->info (i.e., the value after is less) the loop condition becomes false thus ending execution of while loop.
-       - Thus after the while loop execution is complete we see q pointing to the end value (i.e., 7).
-       - We now push the value of q to end i.e., end = q;
+- The while loop executes until it reaches the point at which the node after which the sequence breaks.\
+- i.e., in the example we can see that the while loop executes till 7 thus performing q = q->link.\
+- Finally when q->info > q->link->info (i.e., the value after is less) the loop condition becomes false thus ending execution of while loop.\
+- Thus after the while loop execution is complete we see q pointing to the end value (i.e., 7).\
+- We now push the value of q to end i.e., end = q;
 2. beg points to the first value of the increasing statement and end the last one. 
 3. We will talk about the if statement (q->link == NULL) later.
 4. After we have assigned the value of beg and end we now call the function reverse(beg, end) to reverse the sequence.
@@ -142,8 +141,7 @@ Case 1:
       1 -> 2 -> 3 -> 7 -> 4 -> 2 -> 9 -> 7 -> 8
       <------inc----->   <-dec->   <-dec->
 ```
------>
-      do-while loop is executed:\
+do-while loop is executed:\
       4 times.\
       first for 1 -> 2 -> 3 -> 7\
      - What we can see here is that the value of q as we go into the reverse function would be 0 as we discussed earlier that q is the node previous to the beg node.
@@ -208,8 +206,7 @@ I was able to execute the base case until I came accross this example which brok
 ```
       1 -> 2 -> 3 -> 4 -> 5 -> 4 -> 3 -> 2 -> 1
 ```
------>
-     What can we see here:\
+What can we see here:\
      - 2 sequences 1st one increasing from 1 -> 2 -> 3 -> 4 -> 5 2nd one 4 -> 3 -> 2 -> 1
      - The second sequence is the one which broke the code.
      - What happens here:
