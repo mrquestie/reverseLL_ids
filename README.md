@@ -146,7 +146,7 @@ Case 1:
 <------inc----->   <-dec->   <-dec->
 ```
 do-while loop is executed:\
-4 times.\
+3 times.\
 first for 1 -> 2 -> 3 -> 7
 - What we can see here is that the value of q as we go into the reverse function would be 0 as we discussed earlier that q is the node previous to the beg node.
 - But we can see here there is no previous node.
