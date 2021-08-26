@@ -314,16 +314,18 @@ after this if statement checks whether q->link == NULL which is true.\
 Thus if executes and a node after after 1 breaking the sequence such that it cannot execute further.\
 But how does it break the sequence?\
 -> if the sequence is increasing \
-  Example:
+Example:
 ```
                          q
   -> 5 -> 6 -> 7 -> 8 -> 9
 ```
 We do the following:
-- make a new node tmp.
-- tmp->info = q->info - 1 (as the sequence is increasing.)
-- tmp->link = NULL;
-- q->link = tmp;
+```
+-> make a new node tmp.
+-> tmp->info = q->info - 1 (as the sequence is increasing.)
+-> tmp->link = NULL;
+-> q->link = tmp;
+```
 Result:
 ```
                          q ------ sequence breaks at this node
