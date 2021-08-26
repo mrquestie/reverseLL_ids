@@ -31,19 +31,19 @@ Suppose we push 4 at the beginnig:
 ```
 Code:
 ```
-    struct node* q = start;
-		while (q->link != beg)
-			q = q->link;
-		head = q->link;
-		while (beg->info != end->info)
-		{
-			struct node* index = head->link->link;
-			head->link->link = beg;
-			beg = head->link;
-			head->link = index;
-			q->link = beg;
-		}
-		end = head;
+struct node* q = start;
+while (q->link != beg)
+	q = q->link;
+head = q->link;
+	while (beg->info != end->info)
+	{
+		struct node* index = head->link->link;
+		head->link->link = beg;
+		beg = head->link;
+		head->link = index;
+		q->link = beg;
+	}
+end = head;
 ```
 Explanation:\
 Inside while loop:
@@ -88,25 +88,25 @@ For example:
 We will only look at the if() part:\
 Code:
 ```
-    		if (q->info < q->link->info)
+if (q->info < q->link->info)
+{
+	beg = q;
+	while (q->info < q->link->info)
+	{
+		q = q->link;
+		if (q->link == NULL)
 		{
-			beg = q;
-			while (q->info < q->link->info)
-			{
-				q = q->link;
-				if (q->link == NULL)
-				{
-					struct node* tmp = (struct node*)malloc(sizeof(struct node));
-					tmp->info = q->info - 1;
-					tmp->link = NULL;
-					q->link = tmp;
-					index++;
-				}
-			}
-			end = q;
-			q = reverse(beg, q);
-			q = q->link;
+			struct node* tmp = (struct node*)malloc(sizeof(struct node));
+			tmp->info = q->info - 1;
+			tmp->link = NULL;
+			q->link = tmp;
+			index++;
 		}
+	}
+	end = q;
+	q = reverse(beg, q);
+	q = q->link;
+}
 ```
 
 Explanation:
@@ -116,17 +116,18 @@ Explanation:
           q                ~--> increasing sequence breaks at this point
           1 -> 2 -> 3 -> 7 -> 4 -> and so on.
 ```
-- The while loop executes until it reaches the point at which the node after which the sequence breaks.\
-- i.e., in the example we can see that the while loop executes till 7 thus performing q = q->link.\
-- Finally when q->info > q->link->info (i.e., the value after is less) the loop condition becomes false thus ending execution of while loop.\
-- Thus after the while loop execution is complete we see q pointing to the end value (i.e., 7).\
+- The while loop executes until it reaches the point at which the node after which the sequence breaks.
+- i.e., in the example we can see that the while loop executes till 7 thus performing q = q->link.
+- Finally when q->info > q->link->info (i.e., the value after is less) the loop condition becomes false thus ending execution of while loop.
+- Thus after the while loop execution is complete we see q pointing to the end value (i.e., 7).
 - We now push the value of q to end i.e., end = q;
 2. beg points to the first value of the increasing statement and end the last one. 
 3. We will talk about the if statement (q->link == NULL) later.
 4. After we have assigned the value of beg and end we now call the function reverse(beg, end) to reverse the sequence.
 5. After the execution of reverse() we assign the value of q which is pointing to the end of sequence to q->link that is the next node.
-    Example(1 cont.):\
-    After assigning the value of LL as q = q->link. As previously it was pointing at the end node.
+
+Example(1 cont.):\
+After assigning the value of LL as q = q->link. As previously it was pointing at the end node.
 ```
                               q
           7 -> 3 -> 2 -> 1 -> 4 -> and so on.
@@ -236,12 +237,12 @@ Basically where the code breaks is not inside reverse() function but rather the 
 
 What happens:
 ```
-      	beg = q;
-      	while (q->info > q->link->info)
-	{
-		q = q->link;
-	}
-      end = q;
+beg = q;
+while (q->info > q->link->info)
+{
+	q = q->link;
+}
+end = q;
 ```
 
 ```
@@ -283,14 +284,14 @@ We add, after
 q = q->link;
 ```
 ```
-        if (q->link == NULL)
-	{
-		struct node* tmp = (struct node*)malloc(sizeof(struct node));
-		tmp->info = q->info - 1;
-		tmp->link = NULL;
-		q->link = tmp;
-		index++;
-	}
+if (q->link == NULL)
+{
+	struct node* tmp = (struct node*)malloc(sizeof(struct node));
+	tmp->info = q->info - 1;
+	tmp->link = NULL;
+	q->link = tmp;
+	index++;
+}
 ```
 
 Explanation:\
@@ -328,20 +329,18 @@ But how does it break the sequence?\
 
 -> if the sequence is decreasing\
   Example:
-  ```
-                    q
-  -> 9 -> 8 -> 7 -> 6
-  ```
-  ```
-  -> struct node *tmp = ....malloc(..);
-  ```
-  ```
-    -> tmp->info = q->info + 1 (as the sequence is decreasing)
-    -> tmp-> link = NULL;
-    -> q->link = tmp;
-  ```
-  
-    Result:
+```                    q
+     -> 9 -> 8 -> 7 -> 6
+```
+```
+-> struct node *tmp = ....malloc(..);
+```
+```
+-> tmp->info = q->info + 1 (as the sequence is decreasing)
+-> tmp-> link = NULL;
+-> q->link = tmp;
+```
+Result:
 ```
                     q ------ sequence breaks
   -> 9 -> 8 -> 7 -> 6 -> 7
