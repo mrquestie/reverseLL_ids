@@ -1,7 +1,7 @@
-The method to reverse the given linked list from one point to another:
-Suppose our linked list is as follows: 
-1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 
-We wish to reverse the linked list from node 2 (beg) to node 5 (end)
+The method to reverse the given linked list from one point to another:\
+Suppose our linked list is as follows: \
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 \
+We wish to reverse the linked list from node 2 (beg) to node 5 (end)\
 
 First we need the node before the beg node to do that:
 that is,
