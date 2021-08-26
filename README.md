@@ -155,8 +155,7 @@ in reverse() we have the if-else condition as follows performing reverse accordi
 if (start == beg){....}
 else{....}
 ```
-
-     - Here we have to change the value of start simultaneously.
+Here we have to change the value of start simultaneously.
 ```
 1.
     start&
