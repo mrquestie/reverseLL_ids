@@ -256,17 +256,20 @@ we set, beg = q\
 ```
 1.
 while loop condition true as 4 > 3.
-Thus,``` q = q->link; ```
+Thus,
+	q = q->link;
               q
       -> 4 -> 3 -> 2 -> 1
 2.
 while loop condition true as 3 > 2.
-Thus,```q = q->link;```
+Thus,
+	q = q->link;
                     q
       -> 4 - > 3 -> 2 -> 1
 3.
 while loop condition true as 2 > 1.
-Thus,```q = q->link;```
+Thus,
+	q = q->link;
                         q
       -> 4 -> 3 -> 2 -> 1
 ```
