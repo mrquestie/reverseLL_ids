@@ -67,7 +67,7 @@ Inside while loop:
      q                  head
 1 -> 2 -> 6 -> 5 -> 4 -> 3 -> 7
 	 beg
-                 end
+         end
 ```
 
 After while loop ends
@@ -148,7 +148,7 @@ Case 1:
 do-while loop is executed:\
 3 times.\
 first for 1 -> 2 -> 3 -> 7
-- What we can see here is that the value of q as we go into the reverse function would be 0 as we discussed earlier that q is the node previous to the beg node.
+- Now heres a catch, we cannot assign a value to q as we discussed earlier that q is the node previous to the beg node.
 - But we can see here there is no previous node.
 - Thus,
 in reverse() we have the if-else condition as follows performing reverse according to the requirement as follows:
@@ -311,7 +311,7 @@ q = q->link;
 -> 4 -> 3 -> 2 -> 1
 ```
 After this if statement checks whether q->link == NULL which is true.\
-Thus if() executes and a node after 1 is added keeping in maind whether the sequence is increasing or decreasing breaking the sequence such that it cannot execute further.\
+Thus if() executes and a node after 1 is added keeping in mind whether the sequence is increasing or decreasing breaking the sequence such that it cannot execute further.\
 How it is done:\
 Case 1: If the sequence is **increasing** \
 Example:
