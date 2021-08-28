@@ -52,22 +52,22 @@ Explanation:\
 Inside while loop:
 ```
 1.
-     q   head           
-1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
-	 beg            end
+	     q   head           
+	1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+		 beg            end
 2.
-     q        head
-1 -> 2 -> 4 -> 3 -> 5 -> 6 -> 7
-	 beg            end
+	     q        head
+	1 -> 2 -> 4 -> 3 -> 5 -> 6 -> 7
+		 beg            end
 3.
-     q             head
-1 -> 2 -> 5 -> 4 -> 3 -> 6 -> 7
-	 beg            end
+	     q             head
+	1 -> 2 -> 5 -> 4 -> 3 -> 6 -> 7
+		 beg            end
 4.
-     q                  head
-1 -> 2 -> 6 -> 5 -> 4 -> 3 -> 7
-	 beg
-         end
+	     q                  head
+	1 -> 2 -> 6 -> 5 -> 4 -> 3 -> 7
+		 beg
+		 end
 ```
 
 After while loop ends
